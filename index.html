@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holy Angels Public School - Excellence in Education</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/><circle cx="10" cy="60" r="0.5" fill="white" opacity="0.1"/><circle cx="90" cy="40" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            pointer-events: none;
+        }
+        
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .card-hover:hover::before {
+            left: 100%;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-10px) rotate(1deg); }
+            50% { transform: translateY(-20px) rotate(0deg); }
+            75% { transform: translateY(-10px) rotate(-1deg); }
+        }
+        
+        .stats-counter {
+            font-size: 3rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .section-gradient {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        
+        .floating-shapes::before,
+        .floating-shapes::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: float-shapes 20s infinite linear;
+        }
+        
+        .floating-shapes::before {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: -5s;
+        }
+        
+        .floating-shapes::after {
+            width: 120px;
+            height: 120px;
+            top: 60%;
+            right: 10%;
+            animation-delay: -15s;
+        }
+        
+        @keyframes float-shapes {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
+            25% { transform: translateY(-20px) rotate(90deg); opacity: 0.6; }
+            50% { transform: translateY(-40px) rotate(180deg); opacity: 0.3; }
+            75% { transform: translateY(-20px) rotate(270deg); opacity: 0.6; }
+        }
+        
+        .age-group-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .age-group-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.8) 100%);
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .typewriter {
+            overflow: hidden;
+            border-right: 3px solid #fbbf24;
+            white-space: nowrap;
+            animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #fbbf24; }
+        }
+    </style>
+</head>
+<body class="font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-2">
+                    <svg class="w-8 h-8 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"/>
+                    </svg>
+                    <span class="text-xl font-bold text-gray-800">Holy Angels Public School</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-indigo-600 transition-colors">Home</a>
+                    <a href="#about" class="text-gray-700 hover:text-indigo-600 transition-colors">About</a>
+                    <a href="#gallery" class="text-gray-700 hover:text-indigo-600 transition-colors">Gallery</a>
+                    <a href="#admissions" class="text-gray-700 hover:text-indigo-600 transition-colors">Admissions</a>
+                    <a href="#contact" class="text-gray-700 hover:text-indigo-600 transition-colors">Contact</a>
+                </div>
+                <button class="md:hidden">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient min-h-full pt-16 flex items-center relative overflow-hidden">
+        <div class="floating-shapes"></div>
+        <div class="max-w-7xl mx-auto px-4 py-20 relative z-10">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="text-white">
+                    <div class="mb-4">
+                        <span class="inline-block bg-yellow-400 text-gray-900 px-4 py-2 rounded-full text-sm font-semibold pulse-animation">
+                            🌟 Established 2005 - 19 Years of Excellence
+                        </span>
+                    </div>
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                        Nurturing Young
+                        <span class="text-yellow-300 typewriter">Minds</span>
+                    </h1>
+                    <p class="text-xl mb-8 text-gray-100">
+                        Complete early childhood to middle school education from Pre-Nursery to Class 8th. Building strong foundations for lifelong learning and character development.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                        <div class="age-group-card rounded-xl p-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 bg-gradient-to-br from-pink-400 to-purple-500 rounded-lg flex items-center justify-center">
+                                    <span class="text-white font-bold text-sm">👶</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-gray-800">Early Years</h3>
+                                    <p class="text-sm text-gray-600">Pre-Nursery to Class 2</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="age-group-card rounded-xl p-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-lg flex items-center justify-center">
+                                    <span class="text-white font-bold text-sm">🎓</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-gray-800">Middle School</h3>
+                                    <p class="text-sm text-gray-600">Class 3 to Class 8</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="relative">
+                    <div class="animate-float">
+                        <svg class="w-full h-96" viewBox="0 0 400 300" fill="none">
+                            <!-- School Building with more detail -->
+                            <rect x="60" y="140" width="280" height="130" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2" rx="8"/>
+                            
+                            <!-- Main entrance -->
+                            <rect x="170" y="200" width="60" height="70" fill="#1e40af" rx="4"/>
+                            <rect x="180" y="210" width="40" height="50" fill="#3b82f6" rx="3"/>
+                            <circle cx="215" cy="235" r="3" fill="#fbbf24"/>
+                            <rect x="185" y="215" width="30" height="3" fill="#60a5fa"/>
+                            
+                            <!-- Windows -->
+                            <rect x="80" y="160" width="30" height="25" fill="#dbeafe" stroke="#3b82f6" stroke-width="2" rx="3"/>
+                            <rect x="120" y="160" width="30" height="25" fill="#dbeafe" stroke="#3b82f6" stroke-width="2" rx="3"/>
+                            <rect x="250" y="160" width="30" height="25" fill="#dbeafe" stroke="#3b82f6" stroke-width="2" rx="3"/>
+                            <rect x="290" y="160" width="30" height="25" fill="#dbeafe" stroke="#3b82f6" stroke-width="2" rx="3"/>
+                            
+                            <!-- Second floor windows -->
+                            <rect x="80" y="200" width="30" height="25" fill="#dbeafe" stroke="#3b82f6" stroke-width="2" rx="3"/>
+                            <rect x="120" y="200" width="30" height="25" fill="#dbeafe" stroke="#3b82f6" stroke-width="2" rx="3"/>
+                            <rect x="250" y="200" width="30" height="25" fill="#dbeafe" stroke="#3b82f6" stroke-width="2" rx="3"/>
+                            <rect x="290" y="200" width="30" height="25" fill="#dbeafe" stroke="#3b82f6" stroke-width="2" rx="3"/>
+                            
+                            <!-- Roof -->
+                            <polygon points="50,140 200,70 350,140" fill="#dc2626"/>
+                            <rect x="190" y="70" width="20" height="8" fill="#991b1b"/>
+                            
+                            <!-- School sign -->
+                            <rect x="140" y="120" width="120" height="20" fill="#1e40af" rx="10"/>
+                            <text x="200" y="133" text-anchor="middle" fill="white" font-size="7" font-family="Arial">HOLY ANGELS PUBLIC SCHOOL</text>
+                            
+                            <!-- Flag pole -->
+                            <rect x="320" y="90" width="3" height="60" fill="#6b7280"/>
+                            <rect x="323" y="90" width="25" height="15" fill="#dc2626"/>
+                            <rect x="323" y="95" width="25" height="2" fill="white"/>
+                            <rect x="323" y="100" width="25" height="2" fill="white"/>
+                            
+                            <!-- Playground equipment -->
+                            <rect x="30" y="220" width="15" height="30" fill="#f59e0b"/>
+                            <rect x="25" y="215" width="25" height="5" fill="#f59e0b"/>
+                            <circle cx="37" cy="210" r="8" fill="#10b981"/>
+                            
+                            <!-- Trees -->
+                            <circle cx="25" cy="190" r="20" fill="#22c55e"/>
+                            <rect x="22" y="190" width="6" height="25" fill="#92400e"/>
+                            <circle cx="375" cy="190" r="20" fill="#22c55e"/>
+                            <rect x="372" y="190" width="6" height="25" fill="#92400e"/>
+                            
+                            <!-- Students playing -->
+                            <circle cx="90" cy="245" r="6" fill="#fbbf24"/>
+                            <rect x="87" y="251" width="6" height="12" fill="#3b82f6"/>
+                            <circle cx="110" cy="245" r="6" fill="#f59e0b"/>
+                            <rect x="107" y="251" width="6" height="12" fill="#ef4444"/>
+                            <circle cx="130" cy="245" r="6" fill="#8b5cf6"/>
+                            <rect x="127" y="251" width="6" height="12" fill="#10b981"/>
+                            
+                            <!-- Books and school supplies -->
+                            <rect x="260" y="240" width="8" height="10" fill="#f59e0b"/>
+                            <rect x="270" y="238" width="8" height="12" fill="#3b82f6"/>
+                            <rect x="280" y="242" width="8" height="8" fill="#ef4444"/>
+                            
+                            <!-- Sun -->
+                            <circle cx="350" cy="50" r="15" fill="#fbbf24"/>
+                            <path d="M350 25 L350 35 M375 50 L365 50 M325 50 L335 50 M350 65 L350 75 M365 35 L360 40 M335 35 L340 40 M365 65 L360 60 M335 65 L340 60" stroke="#fbbf24" stroke-width="2"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="bg-white py-16 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-50 to-purple-50 opacity-50"></div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold gradient-text mb-4">Our School at a Glance</h2>
+                <p class="text-gray-600">Comprehensive education from early childhood to middle school</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-8 text-center">
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover">
+                    <div class="w-16 h-16 bg-gradient-to-br from-pink-400 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white text-2xl">👶</span>
+                    </div>
+                    <div class="stats-counter text-2xl">10</div>
+                    <p class="text-gray-600 font-medium">Grade Levels</p>
+                    <p class="text-xs text-gray-500 mt-1">Pre-Nursery to Class 8</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white text-2xl">👥</span>
+                    </div>
+                    <div class="stats-counter text-2xl">15:1</div>
+                    <p class="text-gray-600 font-medium">Student-Teacher Ratio</p>
+                    <p class="text-xs text-gray-500 mt-1">Personalized attention</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover">
+                    <div class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white text-2xl">👨‍🏫</span>
+                    </div>
+                    <div class="stats-counter text-2xl">25+</div>
+                    <p class="text-gray-600 font-medium">Expert Teachers</p>
+                    <p class="text-xs text-gray-500 mt-1">Qualified & experienced</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover">
+                    <div class="w-16 h-16 bg-gradient-to-br from-indigo-400 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white text-2xl">🏆</span>
+                    </div>
+                    <div class="stats-counter text-2xl">19</div>
+                    <p class="text-gray-600 font-medium">Years Excellence</p>
+                    <p class="text-xs text-gray-500 mt-1">Since 2005</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover">
+                    <div class="w-16 h-16 bg-gradient-to-br from-red-400 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white text-2xl">🎯</span>
+                    </div>
+                    <div class="stats-counter text-2xl">100%</div>
+                    <p class="text-gray-600 font-medium">Success Rate</p>
+                    <p class="text-xs text-gray-500 mt-1">Academic excellence</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-gradient py-20">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">About Holy Angels Public School</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Since 2005, we've been nurturing young minds from Grade 1 to 8, building strong foundations in academics, character, and creativity that prepare our students for their next educational journey.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gradient-to-br from-white to-blue-50 p-8 rounded-xl shadow-lg card-hover border border-blue-100">
+                    <div class="w-16 h-16 bg-gradient-to-br from-indigo-100 to-indigo-200 rounded-xl flex items-center justify-center mb-6 shadow-inner">
+                        <svg class="w-8 h-8 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Complete Education Journey</h3>
+                    <p class="text-gray-600">Age-appropriate curriculum from Pre-Nursery to Class 8 designed to build strong foundations in core subjects and critical thinking skills.</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-white to-green-50 p-8 rounded-xl shadow-lg card-hover border border-green-100">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-100 to-green-200 rounded-xl flex items-center justify-center mb-6 shadow-inner">
+                        <svg class="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Expert Faculty</h3>
+                    <p class="text-gray-600">Qualified teachers specializing in early childhood and elementary education who understand child development stages.</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-white to-purple-50 p-8 rounded-xl shadow-lg card-hover border border-purple-100">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-100 to-purple-200 rounded-xl flex items-center justify-center mb-6 shadow-inner">
+                        <svg class="w-8 h-8 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Modern Facilities</h3>
+                    <p class="text-gray-600">Age-appropriate facilities including play areas for toddlers, interactive classrooms, and specialized labs for older students.</p>
+                </div>
+            </div>
+            
+            <!-- Age-Specific Programs Section -->
+            <div class="mt-20">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl font-bold text-gray-900 mb-4">Age-Specific Programs</h3>
+                    <p class="text-xl text-gray-600">Tailored education for every developmental stage</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Early Years Program -->
+                    <div class="bg-gradient-to-br from-pink-50 to-purple-50 p-8 rounded-2xl shadow-lg border border-pink-100">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-br from-pink-400 to-purple-500 rounded-2xl flex items-center justify-center mr-4">
+                                <span class="text-white text-2xl">🌱</span>
+                            </div>
+                            <div>
+                                <h4 class="text-2xl font-bold text-gray-900">Early Years Program</h4>
+                                <p class="text-pink-600 font-semibold">Pre-Nursery, Nursery, LKG, UKG</p>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-2 h-2 bg-pink-400 rounded-full"></div>
+                                <p class="text-gray-700">Play-based learning approach</p>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-2 h-2 bg-pink-400 rounded-full"></div>
+                                <p class="text-gray-700">Motor skills development</p>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-2 h-2 bg-pink-400 rounded-full"></div>
+                                <p class="text-gray-700">Social interaction & communication</p>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-2 h-2 bg-pink-400 rounded-full"></div>
+                                <p class="text-gray-700">Creative arts & music</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Elementary Program -->
+                    <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-2xl shadow-lg border border-blue-100">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-2xl flex items-center justify-center mr-4">
+                                <span class="text-white text-2xl">📚</span>
+                            </div>
+                            <div>
+                                <h4 class="text-2xl font-bold text-gray-900">Elementary Program</h4>
+                                <p class="text-blue-600 font-semibold">Class 1st to Class 8th</p>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
+                                <p class="text-gray-700">Core academic subjects</p>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
+                                <p class="text-gray-700">Science & mathematics focus</p>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
+                                <p class="text-gray-700">Language development (Hindi & English)</p>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
+                                <p class="text-gray-700">Sports & extracurricular activities</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 py-20 relative overflow-hidden">
+        <div class="floating-shapes"></div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-4">Why Choose Holy Angels?</h2>
+                <p class="text-xl text-indigo-200">Comprehensive development for your child's bright future</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-effect rounded-2xl p-8 text-white card-hover">
+                    <div class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center mb-6 pulse-animation">
+                        <span class="text-2xl">🎨</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Creative Learning</h3>
+                    <p class="text-indigo-200">Art, music, dance, and creative expression integrated into daily curriculum for holistic development.</p>
+                </div>
+                
+                <div class="glass-effect rounded-2xl p-8 text-white card-hover">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-blue-500 rounded-2xl flex items-center justify-center mb-6 pulse-animation">
+                        <span class="text-2xl">🏃‍♂️</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Sports & Fitness</h3>
+                    <p class="text-indigo-200">Age-appropriate physical activities, sports training, and fitness programs for healthy growth.</p>
+                </div>
+                
+                <div class="glass-effect rounded-2xl p-8 text-white card-hover">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-500 rounded-2xl flex items-center justify-center mb-6 pulse-animation">
+                        <span class="text-2xl">💻</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Digital Learning</h3>
+                    <p class="text-indigo-200">Smart classrooms, educational technology, and computer literacy from early grades.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="bg-white py-20">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Campus Gallery</h2>
+                <p class="text-xl text-gray-600">Take a visual tour of our beautiful campus and facilities</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="rounded-xl h-64 overflow-hidden card-hover shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                         alt="School Campus Building" 
+                         class="w-full h-full object-cover"
+                         onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                        <p class="text-white font-semibold">School Campus</p>
+                    </div>
+                </div>
+                
+                <div class="rounded-xl h-64 overflow-hidden card-hover shadow-lg relative">
+                    <img src="https://images.unsplash.com/photo-1497486751825-1233686d5d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                         alt="Modern Classroom" 
+                         class="w-full h-full object-cover"
+                         onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                        <p class="text-white font-semibold">Modern Classrooms</p>
+                    </div>
+                </div>
+                
+                <div class="rounded-xl h-64 overflow-hidden card-hover shadow-lg relative">
+                    <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                         alt="School Library" 
+                         class="w-full h-full object-cover"
+                         onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                        <p class="text-white font-semibold">Library & Reading Area</p>
+                    </div>
+                </div>
+                
+                <div class="rounded-xl h-64 overflow-hidden card-hover shadow-lg relative">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                         alt="Sports Playground" 
+                         class="w-full h-full object-cover"
+                         onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                        <p class="text-white font-semibold">Sports & Playground</p>
+                    </div>
+                </div>
+                
+                <div class="rounded-xl h-64 overflow-hidden card-hover shadow-lg relative">
+                    <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                         alt="Science Laboratory" 
+                         class="w-full h-full object-cover"
+                         onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                        <p class="text-white font-semibold">Science Laboratory</p>
+                    </div>
+                </div>
+                
+                <div class="rounded-xl h-64 overflow-hidden card-hover shadow-lg relative">
+                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                         alt="Student Activities" 
+                         class="w-full h-full object-cover"
+                         onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                        <p class="text-white font-semibold">Student Activities</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admissions Section -->
+    <section id="admissions" class="bg-indigo-900 text-white py-20">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Join Our Community</h2>
+                <p class="text-xl text-indigo-200">Ready to begin your journey with Holy Angels Public School?</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Walk-In Admissions</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-yellow-400 text-gray-900 rounded-full flex items-center justify-center font-bold text-sm">1</div>
+                            <div>
+                                <h4 class="font-semibold mb-2">Visit Our Campus</h4>
+                                <p class="text-indigo-200">Come directly to our admissions office during business hours with required documents.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-yellow-400 text-gray-900 rounded-full flex items-center justify-center font-bold text-sm">2</div>
+                            <div>
+                                <h4 class="font-semibold mb-2">Meet Our Team</h4>
+                                <p class="text-indigo-200">Speak directly with our admissions counselors and get immediate guidance.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-yellow-400 text-gray-900 rounded-full flex items-center justify-center font-bold text-sm">3</div>
+                            <div>
+                                <h4 class="font-semibold mb-2">Same-Day Processing</h4>
+                                <p class="text-indigo-200">Complete your application and receive admission decision on the same day.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white text-gray-900 p-8 rounded-xl">
+                    <h3 class="text-2xl font-bold mb-6">Walk-In Hours</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center border-b pb-2">
+                            <span class="font-semibold">Monday - Friday</span>
+                            <span class="text-indigo-600">9:00 AM - 4:00 PM</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b pb-2">
+                            <span class="font-semibold">Saturday</span>
+                            <span class="text-indigo-600">10:00 AM - 2:00 PM</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b pb-2">
+                            <span class="font-semibold">Sunday</span>
+                            <span class="text-indigo-600">Closed</span>
+                        </div>
+                    </div>
+                    <div class="mt-6 p-4 bg-yellow-50 rounded-lg">
+                        <p class="text-sm text-gray-700"><strong>Required Documents:</strong> Birth certificate, previous school records, and parent/guardian ID.</p>
+                    </div>
+                    <button class="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold mt-6 hover:bg-indigo-700 transition-colors">
+                        Get Directions
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-gray-50 py-20">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Contact Us</h2>
+                <p class="text-xl text-gray-600">Get in touch with us and visit our campus</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <div class="space-y-8">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-2">Address</h3>
+                                <p class="text-gray-600">4/17 UIT Bhiwadi<br>Rajasthan 301019</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-2">Phone</h3>
+                                <p class="text-gray-600">+91 9783016124</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-2">Email</h3>
+                                <p class="text-gray-600">info@holyangelspublicschool.in</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-2">Office Hours</h3>
+                                <p class="text-gray-600">Monday - Saturday: 9:00 AM - 2:00 PM<br>Sunday: Closed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-96">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3506.2233913121413!2d77.0304153!3d28.4594965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d19d582e38859%3A0x2cf5d8c5b3f5c5d5!2sBhiwadi%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1635749045123!5m2!1sen!2sin"
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Getting Here</h3>
+                        <p class="text-gray-600 text-sm">Located in UIT Bhiwadi, Rajasthan, easily accessible by car or public transportation. Free parking available on campus.</p>
+                        <button class="mt-4 bg-indigo-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-indigo-700 transition-colors" onclick="window.open('https://www.google.com/maps/dir//Bhiwadi,+Rajasthan/@28.4594965,77.0304153,17z', '_blank')">
+                            Get Directions
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <svg class="w-8 h-8 text-indigo-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3z"/>
+                        </svg>
+                        <span class="text-xl font-bold">Holy Angels Public School</span>
+                    </div>
+                    <p class="text-gray-400">Excellence in education since 2005. Preparing students for success in the 21st century.</p>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#about" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#programs" class="hover:text-white transition-colors">Academic Programs</a></li>
+                        <li><a href="#admissions" class="hover:text-white transition-colors">Admissions</a></li>
+                        <li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Holy Angels Public School. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+
+
+        // Add active state to navigation
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('nav a[href^="#"]');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('text-indigo-600');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('text-indigo-600');
+                }
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99214c8157eaa735',t:'MTc2MTA1NTQxMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
