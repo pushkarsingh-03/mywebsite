@@ -1,4 +1,50 @@
+# Robots.txt for Holy Angels Public School
+# Website: https://holyangelspublicschool.in
+# Last Updated: 2025-10-22
+
+# Allow ALL search engines to crawl the entire site
 User-agent: *
 Allow: /
+Crawl-delay: 1
 
+# Specific rules for major search engines (reduced crawl delays)
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0.5
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0.5
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Explicitly allow all important files for your static site
+Allow: /index.html
+Allow: /robots.txt
+Allow: /sitemap.xml
+Allow: /favicon.ico
+
+# No disallow rules since you only have 3 files
+# This ensures maximum visibility across all search engines
+
+# Sitemap location - helps all search engines find your content
 Sitemap: https://holyangelspublicschool.in/sitemap.xml
