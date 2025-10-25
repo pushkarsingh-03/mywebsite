@@ -4,7 +4,7 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-    <!-- Homepage - Highest Priority -->
+    <!-- Homepage - Main page with all content -->
     <url>
         <loc>https://holyangelspublicschool.in/</loc>
         <lastmod>2025-10-22</lastmod>
@@ -12,7 +12,22 @@
         <priority>1.0</priority>
     </url>
 
-    <!-- Main Navigation Pages -->
+    <!-- Index.html (explicit reference to main page) -->
+    <url>
+        <loc>https://holyangelspublicschool.in/index.html</loc>
+        <lastmod>2025-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- Anchor sections within the single page (for better SEO understanding) -->
+    <url>
+        <loc>https://holyangelspublicschool.in/#home</loc>
+        <lastmod>2025-10-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
     <url>
         <loc>https://holyangelspublicschool.in/#about</loc>
         <lastmod>2025-10-22</lastmod>
@@ -41,252 +56,20 @@
         <priority>0.8</priority>
     </url>
 
-    <!-- Academic Programs Pages -->
+    <!-- Robots.txt file -->
     <url>
-        <loc>https://holyangelspublicschool.in/pre-nursery</loc>
-        <lastmod>2025-10-22</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-    <url>
-        <loc>https://holyangelspublicschool.in/nursery</loc>
-        <lastmod>2025-10-22</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-    <url>
-        <loc>https://holyangelspublicschool.in/lkg</loc>
-        <lastmod>2025-10-22</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-    <url>
-        <loc>https://holyangelspublicschool.in/ukg</loc>
-        <lastmod>2025-10-22</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-    <url>
-        <loc>https://holyangelspublicschool.in/class-1</loc>
-        <lastmod>2025-10-22</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-    <url>
-        <loc>https://holyangelspublicschool.in/class-2</loc>
-        <lastmod>2025-10-22</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-    <url>
-        <loc>https://holyangelspublicschool.in/class-3</loc>
-        <lastmod>2025-10-22</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-    <url>
-        <loc>https://holyangelspublicschool.in/class-4</loc>
-        <lastmod>2025-10-22</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-    <url>
-        <loc>https://holyangelspublicschool.in/class-5</loc>
-        <lastmod>2025-10-22</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-    <url>
-        <loc>https://holyangelspublicschool.in/class-6</loc>
-        <lastmod>2025-10-22</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-    <url>
-        <loc>https://holyangelspublicschool.in/class-7</loc>
-        <lastmod>2025-10-22</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-    <url>
-        <loc>https://holyangelspublicschool.in/class-8</loc>
-        <lastmod>2025-10-22</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-    <!-- Information Pages -->
-    <url>
-        <loc>https://holyangelspublicschool.in/facilities</loc>
-        <lastmod>2025-10-22</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-
-    <url>
-        <loc>https://holyangelspublicschool.in/faculty</loc>
-        <lastmod>2025-10-22</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-
-    <url>
-        <loc>https://holyangelspublicschool.in/curriculum</loc>
-        <lastmod>2025-10-22</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-
-    <url>
-        <loc>https://holyangelspublicschool.in/extracurricular</loc>
-        <lastmod>2025-10-22</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-
-    <!-- Admission Related Pages -->
-    <url>
-        <loc>https://holyangelspublicschool.in/admission-process</loc>
-        <lastmod>2025-10-22</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <url>
-        <loc>https://holyangelspublicschool.in/fee-structure</loc>
-        <lastmod>2025-10-22</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-    <url>
-        <loc>https://holyangelspublicschool.in/admission-form</loc>
-        <lastmod>2025-10-22</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <!-- Events and News -->
-    <url>
-        <loc>https://holyangelspublicschool.in/events</loc>
-        <lastmod>2025-10-22</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-    </url>
-
-    <url>
-        <loc>https://holyangelspublicschool.in/news</loc>
-        <lastmod>2025-10-22</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-    </url>
-
-    <url>
-        <loc>https://holyangelspublicschool.in/achievements</loc>
-        <lastmod>2025-10-22</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-
-    <!-- Location and Contact -->
-    <url>
-        <loc>https://holyangelspublicschool.in/location</loc>
+        <loc>https://holyangelspublicschool.in/robots.txt</loc>
         <lastmod>2025-10-22</lastmod>
         <changefreq>yearly</changefreq>
-        <priority>0.5</priority>
+        <priority>0.1</priority>
     </url>
 
+    <!-- Sitemap.xml file -->
     <url>
-        <loc>https://holyangelspublicschool.in/directions</loc>
-        <lastmod>2025-10-22</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.5</priority>
-    </url>
-
-    <!-- Important Documents -->
-    <url>
-        <loc>https://holyangelspublicschool.in/prospectus</loc>
-        <lastmod>2025-10-22</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.6</priority>
-    </url>
-
-    <url>
-        <loc>https://holyangelspublicschool.in/school-calendar</loc>
-        <lastmod>2025-10-22</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.5</priority>
-    </url>
-
-    <!-- Parent Resources -->
-    <url>
-        <loc>https://holyangelspublicschool.in/parent-portal</loc>
+        <loc>https://holyangelspublicschool.in/sitemap.xml</loc>
         <lastmod>2025-10-22</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-
-    <url>
-        <loc>https://holyangelspublicschool.in/parent-guidelines</loc>
-        <lastmod>2025-10-22</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-    </url>
-
-    <!-- Legal Pages -->
-    <url>
-        <loc>https://holyangelspublicschool.in/privacy-policy</loc>
-        <lastmod>2025-10-22</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <url>
-        <loc>https://holyangelspublicschool.in/terms-conditions</loc>
-        <lastmod>2025-10-22</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <!-- Image Gallery Pages -->
-    <url>
-        <loc>https://holyangelspublicschool.in/campus-photos</loc>
-        <lastmod>2025-10-22</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-    </url>
-
-    <url>
-        <loc>https://holyangelspublicschool.in/event-photos</loc>
-        <lastmod>2025-10-22</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-    </url>
-
-    <!-- Special Programs -->
-    <url>
-        <loc>https://holyangelspublicschool.in/summer-camp</loc>
-        <lastmod>2025-10-22</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.5</priority>
-    </url>
-
-    <url>
-        <loc>https://holyangelspublicschool.in/after-school-programs</loc>
-        <lastmod>2025-10-22</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
+        <priority>0.2</priority>
     </url>
 
 </urlset>
